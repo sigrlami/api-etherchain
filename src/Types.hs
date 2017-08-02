@@ -37,7 +37,6 @@ data ECHTransaction =
     , trType         :: T.Text  
     } deriving (Show)
 
--- | Bitcoing price index
 data ECHWrapper =
   ECHWrapper
   { ewStatus  :: Int 
@@ -69,6 +68,3 @@ instance FromJSON ECHTransaction where
     gu <- o .: "gasUsed" 
     ty <- o .: "type" 
     return $ ECHTransaction hs se rc ac pr gl am bi tm nc ic bh ph ti gu ty
-               
-
-                           
