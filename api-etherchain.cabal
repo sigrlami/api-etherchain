@@ -3,7 +3,7 @@ version:             0.1.0.0
 -- synopsis:
 -- description:
 homepage:            https://github.com/sigrlami/api-etherchain#readme
-license:             BSD3
+license:             MIT
 license-file:        LICENSE
 author:              Sergey Bushnyak
 maintainer:          sergey.bushnyak@sigrlami.eu
@@ -18,3 +18,8 @@ executable api-etherchain
   main-is:             Main.hs
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
+                     , http-conduit
+                     , bytestring
+                     , text
+                     , time
+                     , aeson
