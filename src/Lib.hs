@@ -5,19 +5,22 @@ module Lib
     , module Types  
     ) where
 
-import Data.Aeson
-import qualified Data.Text as T
-import Data.Time 
-import Network.HTTP.Conduit (simpleHttp)
+import           Data.Aeson
 import qualified Data.ByteString.Char8 as B
 import qualified Data.ByteString.Lazy.Char8 as BL
+import qualified Data.Text as T
+import           Data.Time
+import           Network.HTTP.Conduit (simpleHttp)
 
-import Types
+import           Types
 
 --------------------------------------------------------------------------------
 
 endpoint :: T.Text
 endpoint = "https://etherchain.org/api/"
 
+getHistory :: T.Text -> Int -> T.Text
+getHistory acc page = T.concat [endpoint, "account/", acc, "/tx/", (T.pack $ show $ page)]
+
 queryEC :: T.Text -> IO (Maybe T.Text)
-queryEC query =  undefined -- fmap decode $ simpleHttp (T.unpack query)
+queryEC query = fmap decode $ simpleHttp (T.unpack query)
