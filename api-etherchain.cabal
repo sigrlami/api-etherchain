@@ -15,7 +15,7 @@ extra-source-files:  README.md
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:     Etherchain
   other-modules:       Types
   build-depends:       base >= 4.7 && < 5
                      , http-conduit

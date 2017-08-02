@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Lib
+module Etherchain
     ( queryEC
     , queryECT
     , module Types  
