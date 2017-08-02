@@ -29,10 +29,10 @@ data ECHTransaction =
     , trBlock_id     :: Int
     , trTime         :: UTCTime
     , trNewContract  :: Int 
-    , trIsContractTx :: Maybe Bool
+    , trIsContractTx :: Maybe T.Text
     , trBlockHash    :: T.Text
     , trParentHash   :: T.Text
-    , trTxIndex      :: Maybe T.Text
+    , trTxIndex      :: Maybe Int
     , trGasUsed      :: Int
     , trType         :: T.Text  
     } deriving (Show)
@@ -45,7 +45,7 @@ data ECHWrapper =
   } deriving (Show)
 
 instance FromJSON ECHWrapper where
-  parseJSON = withObject "tender" $ \o -> do
+  parseJSON = withObject "wrapper" $ \o -> do
     st <- o .: "status" 
     dt <- o .: "data" 
     return $ ECHWrapper st dt

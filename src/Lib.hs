@@ -1,7 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Lib
     ( queryEC
+    , queryECT
     , module Types  
     ) where
 
@@ -21,6 +23,11 @@ endpoint = "https://etherchain.org/api/"
 
 getHistory :: T.Text -> Int -> T.Text
 getHistory acc page = T.concat [endpoint, "account/", acc, "/tx/", (T.pack $ show $ page)]
+
+queryECT :: T.Text -> IO (Either String ECHWrapper)
+queryECT query = do
+  vs <- simpleHttp $ T.unpack query
+  return $ eitherDecode vs 
 
 queryEC :: T.Text -> IO (Maybe T.Text)
 queryEC query = fmap decode $ simpleHttp (T.unpack query)
