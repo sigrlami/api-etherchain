@@ -17,8 +17,7 @@ import Types
 --------------------------------------------------------------------------------
 
 endpoint :: T.Text
-endpoint = "http://api.coindesk.com/v1/bpi/"
-
+endpoint = "https://etherchain.org/api/"
 
 queryEC :: T.Text -> IO (Maybe T.Text)
 queryEC query =  undefined -- fmap decode $ simpleHttp (T.unpack query)
