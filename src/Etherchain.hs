@@ -4,6 +4,7 @@
 module Etherchain
     ( queryEC
     , queryECT
+    , getHistory
     , module Types  
     ) where
 
